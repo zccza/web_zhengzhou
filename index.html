@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="郑州数字体验门户：探索商都历史，感受高铁枢纽速度，沉浸中原文化。">
+    <meta name="keywords" content="郑州,中原,商都,高铁枢纽,河南,旅游">
+    <meta name="author" content="Zhengzhou Experience">
+    <meta name="theme-color" content="#050a14">
+
+    <title>郑州体验 | ZZ EXPERIENCE</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/variables.css" as="style">
+    <link rel="preload" href="css/base.css" as="style">
+    <link rel="preload" href="images/郑州CBD夜景图.jpg" as="image">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/page-header.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="郑州体验 | Zhengzhou Experience">
+    <meta property="og:description" content="探索商都历史，感受高铁枢纽速度，沉浸中原文化">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/郑州CBD夜景图.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏙️</text></svg>">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                ZHENG<span>ZHOU</span>
+            </div>
+
+            <!-- 桌面端导航 -->
+            <ul class="nav-links">
+                <li class="nav-item active">首页</li>
+                <li class="nav-item">商都文明</li>
+                <li class="nav-item">现代枢纽</li>
+                <li class="nav-item">中原味道</li>
+                <li class="nav-item">山河锦绣</li>
+            </ul>
+
+            <!-- 移动端菜单按钮 -->
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端菜单覆盖层 -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-nav-links">
+            <div class="mobile-nav-item active">首页</div>
+            <div class="mobile-nav-item">商都文明</div>
+            <div class="mobile-nav-item">现代枢纽</div>
+            <div class="mobile-nav-item">中原味道</div>
+            <div class="mobile-nav-item">山河锦绣</div>
+        </div>
+    </div>
+
+    <!-- 页面1: 首页 -->
+    <div id="page-home" class="page-view active">
+        <header class="page-header home-header">
+            <img src="images/郑州CBD夜景图.jpg"
+                 class="header-bg"
+                 alt="Zhengzhou CBD Night View"
+                 loading="eager">
+            <div class="header-overlay"></div>
+
+            <div class="header-content">
+                <span class="header-tag">The Heart of China</span>
+                <h1 class="header-title" style="font-size: clamp(3rem, 10vw, 5rem);">
+                    郑州 · 未止
+                </h1>
+                <p class="header-desc" style="font-size: clamp(1rem, 2.5vw, 1.3rem); max-width: 600px; margin: 0 auto 2rem;">
+                    一座火车拉来的古都，一个3600年生生不息的传奇。<br>
+                    在这里，听见历史的回响，看见未来的光亮。
+                </p>
+                <div class="header-actions">
+                    <button class="btn btn-gold" data-page="history">探索历史</button>
+                    <button class="btn" data-page="modern">感受现代</button>
+                </div>
+            </div>
+
+            <!-- 下滑提示 -->
+            <div class="scroll-indicator">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                </svg>
+            </div>
+        </header>
+
+        <!-- 首页内容 -->
+        <section class="container">
+            <!-- 城市介绍 -->
+            <div class="city-intro">
+                <div class="glass-card">
+                    <div style="padding: 3rem; text-align: center;">
+                        <h2>中原之心 · 天地之中</h2>
+                        <p class="card-text">
+                            郑州，一座因铁路而兴的城市，如今已发展成为国家中心城市、国际综合交通枢纽。从3600年前商王朝的都城，到如今的中原经济区核心，
+                            郑州始终以开放包容的姿态迎接着每一个时代的机遇。这里有黄河文明的厚重底蕴，有高铁枢纽的现代速度，有少林功夫的武术传奇，
+                            更有胡辣汤、烩面飘香的市井烟火。1200万人在这片土地上追逐梦想，书写着属于这座城市的传奇故事。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 城市掠影 -->
+            <div class="section-header">
+                <h2 class="section-title">城市掠影</h2>
+                <span class="section-subtitle">GALLERY</span>
+            </div>
+
+            <div class="grid-3">
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/中原福塔俯拍图.jpg"
+                             alt="Central Plains Tower"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">中原福塔</h3>
+                        <p class="card-text">
+                            世界最高的全钢结构电视发射塔，总高388米，是河南的地标性建筑。登塔远眺，郑州城市面貌尽收眼底，
+                            夜幕降临时，流光溢彩的福塔如同一支擎天之笔，书写着这座城市的壮美篇章。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/郑州奥林匹克公园夜景图.jpg"
+                             alt="Olympic Sports Center"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">奥林匹克体育中心</h3>
+                        <p class="card-text">
+                            郑州新地标，外形酷似"蝴蝶兰"的体育场承办过多项国际赛事。现代建筑美学的典范，
+                            承载着城市的活力与激情，见证着郑州人民对体育运动的热爱与追求。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/郑州美食话辣汤.jpg"
+                             alt="Local Morning Life"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">市井晨光</h3>
+                        <p class="card-text">
+                            在顺城街、二七区的早市，胡辣汤的香气唤醒整座城市。一碗热腾腾的汤，一份油条水煎包，
+                            这是郑州人一天的开始，也是这座城市最真实的温度和烟火气息。
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CBD展示 -->
+            <div class="hero-card">
+                <div class="glass-card">
+                    <div class="card-img-wrap">
+                        <img src="images/郑州cbd俯拍图.jpg"
+                             alt="Zhengzhou CBD"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">郑东新区CBD</h2>
+                        <p class="card-text">
+                            被誉为"中国曼哈顿"的郑东新区，以如意湖为中心，摩天大楼林立，勾勒出现代都市的天际线。
+                            夜幕降临，华灯初上，这里成为中原大地上最璀璨的明珠。从一片农田到国际化都市区，仅用了20年，
+                            这就是郑州速度的最佳注脚。会展中心、千玺广场、大玉米楼，每一座建筑都在讲述着这座城市的雄心与梦想。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页面2: 历史 -->
+    <div id="page-history" class="page-view">
+        <header class="page-header">
+            <img src="images/郑州商城遗址.jpg"
+                 class="header-bg"
+                 alt="Ancient Shang City"
+                 loading="lazy">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <span class="header-tag">HISTORY & CULTURE</span>
+                <h1 class="header-title">商城遗韵</h1>
+                <p class="header-desc">3600年的时光切片，每一寸夯土都诉说着王朝的兴衰。</p>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="city-intro">
+                <div class="glass-card">
+                    <div style="padding: 3rem;">
+                        <h2>三千六百年的文明传承</h2>
+                        <p class="card-text">
+                            公元前1600年，商王朝在此建都，郑州成为华夏文明的重要发源地之一。商城遗址的夯土城墙，历经三千多年风雨依然屹立，
+                            诉说着青铜时代的辉煌。从商都亳邑到战国韩国新郑，从隋唐管州到宋金郑州，这片土地见证了无数王朝的兴衰更迭。
+                            河南博物院珍藏的国宝级文物，嵩山脚下的少林禅寺，都在向世人讲述着这座城市深厚的历史底蕴。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/郑州登封少林寺.jpg"
+                             alt="Shaolin Temple"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">禅宗祖庭 · 嵩山</div>
+                        <h3 class="card-title">少林寺</h3>
+                        <p class="card-text">
+                            创建于公元495年，天下第一名刹，中国功夫的发源地。"禅武合一"的理念影响了世界，
+                            晨钟暮鼓间，千年的禅武精神代代传承，吸引着全球武术爱好者前来朝圣。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/少林武僧晨练.jpg"
+                             alt="Shaolin Monks Training"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">武术文化 · 传承</div>
+                        <h3 class="card-title">少林武僧晨练</h3>
+                        <p class="card-text">
+                            清晨的第一缕阳光洒在练武场，僧人们开始了日复一日的修行。一招一式，刚柔并济，
+                            这是1500多年来从未间断的传统。少林功夫，不仅是武术，更是一种精神修炼。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/天下第一名刹牌匾.jpg"
+                             alt="Temple Plaque"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">世界文化遗产</div>
+                        <h3 class="card-title">天下第一名刹</h3>
+                        <p class="card-text">
+                            康熙御笔亲题"少林寺"匾额，这块牌匾见证了少林寺的历史地位。作为世界文化遗产，
+                            少林寺不仅是中国的文化瑰宝，更是人类共同的精神财富。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/妇好鸮尊.jpg"
+                             alt="Fu Hao Owl Zun"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">商代晚期 · 河南博物院</div>
+                        <h3 class="card-title">妇好鸮尊</h3>
+                        <p class="card-text">
+                            商代青铜器的巅峰之作，威严的猫头鹰造型象征着战神的力量。它属于中国历史上第一位有据可查的女将军妇好，
+                            见证了那个青铜时代的辉煌与传奇。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/二七纪念塔.jpg"
+                             alt="February 7th Memorial Tower"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta" style="color: var(--accent-red);">1971 · 红色地标</div>
+                        <h3 class="card-title">二七纪念塔</h3>
+                        <p class="card-text">
+                            为纪念1923年京汉铁路工人大罢工而建，双塔并联，红星闪耀。它是老郑州人的精神图腾，
+                            整点响起的钟声是这座城市最亲切的语言，见证着一代代郑州人的成长。
+                        </p>
+                    </div>
+                </article>
+
+                <article class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/郑州商城遗址.jpg"
+                             alt="Shang City Ruins"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">商代早期 · 国家重点文物</div>
+                        <h3 class="card-title">郑州商城遗址</h3>
+                        <p class="card-text">
+                            距今3600年的商代都城遗址，城墙周长近7公里。那些层层夯筑的黄土，凝固了先民们的智慧与汗水，
+                            是郑州作为"商都"最有力的历史见证。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页面3: 现代 -->
+    <div id="page-modern" class="page-view">
+        <header class="page-header">
+            <img src="images/郑东新区如意湖夜景图.jpg"
+                 class="header-bg"
+                 alt="Ruyi Lake Night"
+                 loading="lazy">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <span class="header-tag">DEVELOPMENT</span>
+                <h1 class="header-title">枢纽之心</h1>
+                <p class="header-desc">米字形高铁中心，内陆开放高地。速度与激情在这里交汇。</p>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="city-intro">
+                <div class="glass-card">
+                    <div style="padding: 3rem;">
+                        <h2>从火车拉来的城市到高铁枢纽之都</h2>
+                        <p class="card-text">
+                            1904年，京汉铁路开通，郑州从一个小县城一跃成为重要交通枢纽，被誉为"火车拉来的城市"。如今，郑州已成为中国唯一的
+                            "米字形"高铁枢纽，拥有亚洲最大的列车编组站和全国最繁忙的高铁站之一。郑州东站日均发送旅客超过15万人次，连接着全国各大城市。
+                            从空中的"空中丝绸之路"郑州航空港，到陆地上的中欧班列（郑州），再到如意湖畔的现代化CBD，郑州正以前所未有的速度融入全球化浪潮。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card">
+                    <div style="padding: 3rem;">
+                        <h3 class="card-title" style="font-size: 2rem;">米字形高铁网络</h3>
+                        <p class="card-text">
+                            以郑州为圆心，米字形高铁网络连接八方。两小时高铁圈覆盖了中国4亿人口，
+                            四小时可达全国大部分省会城市。这里是当之无愧的中国铁路心脏，见证着中国速度的奇迹。
+                        </p>
+                        <ul class="train-schedule">
+                            <li>
+                                <span class="destination">🚄 北京 Beijing</span>
+                                <span class="duration">2h 11m</span>
+                            </li>
+                            <li>
+                                <span class="destination">🚄 西安 Xi'an</span>
+                                <span class="duration">1h 48m</span>
+                            </li>
+                            <li>
+                                <span class="destination">🚄 上海 Shanghai</span>
+                                <span class="duration">3h 44m</span>
+                            </li>
+                            <li>
+                                <span class="destination">🚄 武汉 Wuhan</span>
+                                <span class="duration">1h 52m</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-img-wrap" style="height: 100%;">
+                        <img src="images/郑州火车动车图.jpg"
+                             alt="High-Speed Railway"
+                             loading="lazy"
+                             style="height: 100%;">
+                        <div class="image-overlay-text">
+                            <h3>郑州东站</h3>
+                            <p>亚洲最大的高铁站之一，建筑面积41万平方米</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 如意湖展示 -->
+            <div class="nature-grid">
+                <div class="grid-2">
+                    <div class="glass-card feature-card">
+                        <div class="card-img-wrap">
+                            <img src="images/郑东新区如意湖夜景图.jpg"
+                                 alt="Ruyi Lake CBD"
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">如意湖CBD</h3>
+                            <p class="card-text">
+                                如意湖如同一颗璀璨明珠镶嵌在郑东新区核心。环湖而建的摩天大楼倒映在湖面，勾勒出现代都市的迷人天际线。
+                                这里是郑州金融、商务、文化的汇聚之地，夜晚的灯光秀吸引着无数市民游客驻足。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card feature-card">
+                        <div class="card-img-wrap">
+                            <img src="images/中原福塔夜景图.jpg"
+                                 alt="Tower Night View"
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">中原福塔夜色</h3>
+                            <p class="card-text">
+                                当夜幕降临，388米高的中原福塔华灯绽放，成为郑州最璀璨的地标。塔身的LED灯光随着音乐变幻色彩，
+                                在城市夜空中如同一支魔幻的画笔，描绘着这座城市的现代化梦想。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页面4: 美食 -->
+    <div id="page-food" class="page-view">
+        <header class="page-header">
+            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=1920&q=80"
+                 class="header-bg"
+                 alt="Chinese Cuisine"
+                 loading="lazy">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <span class="header-tag" style="color: var(--accent-red);">CUISINE</span>
+                <h1 class="header-title">中原味道</h1>
+                <p class="header-desc">一碗汤，一团面，五味调和，质味适中。</p>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="city-intro">
+                <div class="glass-card">
+                    <div style="padding: 3rem;">
+                        <h2>豫菜之源 · 中原风味</h2>
+                        <p class="card-text">
+                            郑州的美食文化兼容并蓄，既有豫菜的传统精髓，又融合了南北风味。清晨的胡辣汤、中午的羊肉烩面、晚上的健康路夜市，
+                            构成了郑州人一天的美食图谱。"五味调和、质味适中"是豫菜的特点，而郑州人对美食的热爱更体现在街头巷尾的烟火气中。
+                            从顺城街的早餐铺子到二七广场的老字号，从健康路夜市到农科路酒吧街，每一处都藏着这座城市最地道的味道和最温暖的人情味。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 交互式美食展示 -->
+            <div class="food-showcase">
+                <div class="glass-card">
+                    <div class="food-display">
+                        <div class="food-display-content">
+                            <div class="food-display-nav">
+                                <button class="btn btn-gold">胡辣汤</button>
+                                <button class="btn">烩面</button>
+                                <button class="btn">夜市</button>
+                            </div>
+                            <h2 id="food-display-title" class="food-display-title">胡辣汤</h2>
+                            <p id="food-display-desc" class="food-display-desc">
+                                郑州人的清晨唤醒剂。汤汁浓郁粘稠,胡椒味重,加入牛肉丁、面筋、木耳、海带丝等数十种食材,
+                                搭配油条或水煎包,一口下去大汗淋漓,通体舒畅。这一碗热腾腾的胡辣汤,承载着郑州人对家乡的深深眷恋。
+                            </p>
+                            <div class="food-display-footer">
+                                <span class="food-display-label">RECOMMENDED</span>
+                                <span id="food-display-location" class="food-display-location">方中山 · 逍遥镇 · 北舞渡</span>
+                            </div>
+                        </div>
+                        <div class="food-display-image">
+                            <img id="food-display-img"
+                                 src="images/郑州美食话辣汤.jpg"
+                                 alt="Zhengzhou Food"
+                                 loading="lazy"
+                                 style="height: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多美食 -->
+            <div class="grid-3">
+                <div class="glass-card feature-card">
+                    <div class="card-img-wrap" style="height: 220px;">
+                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80"
+                             alt="Chinese Breakfast"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content" style="padding: 1.5rem;">
+                        <h3 class="card-title" style="font-size: 1.2rem;">油条豆沫</h3>
+                        <p class="card-text">
+                            郑州传统早餐，豆沫是用小米面熬制的咸粥，配上花生米、粉条、海带丝。
+                            金黄酥脆的油条泡进热腾腾的豆沫里，是老郑州人记忆中的味道。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="card-img-wrap" style="height: 220px;">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
+                             alt="Chinese BBQ"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content" style="padding: 1.5rem;">
+                        <h3 class="card-title" style="font-size: 1.2rem;">健康路烤串</h3>
+                        <p class="card-text">
+                            健康路夜市是郑州最著名的夜市之一，红柳烤肉、烤鱿鱼、烤面筋，
+                            烟火缭绕中是这座城市最不加修饰的热情和最地道的江湖气。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="card-img-wrap" style="height: 220px;">
+                        <img src="images/炒凉粉.jpg"
+                             alt="Stir-fried Jelly"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content" style="padding: 1.5rem;">
+                        <h3 class="card-title" style="font-size: 1.2rem;">炒凉粉</h3>
+                        <p class="card-text">
+                            郑州街头经典小吃，用豌豆或绿豆制成的凉粉切块，大火快炒，加入豆芽、韭菜、辣椒，
+                            焦香软嫩，是夏日消暑的绝佳选择。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页面5: 自然 -->
+    <div id="page-nature" class="page-view">
+        <header class="page-header">
+            <img src="images/黄河文化公园.jpg"
+                 class="header-bg"
+                 alt="Yellow River Park"
+                 loading="lazy">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <span class="header-tag">NATURE</span>
+                <h1 class="header-title">山河表里</h1>
+                <p class="header-desc">北临黄河，西依嵩山。天地之中，大美不言。</p>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="city-intro">
+                <div class="glass-card">
+                    <div style="padding: 3rem;">
+                        <h2>黄河之都 · 嵩山之城</h2>
+                        <p class="card-text">
+                            郑州北临黄河，西依嵩山，坐拥得天独厚的自然资源。黄河从这里穿城而过，孕育了灿烂的中原文明；嵩山作为五岳之中岳，
+                            承载着"天地之中"的历史文化内涵。黄河风景名胜区内，炎黄二帝巨型塑像巍然屹立，象征着中华民族的根与魂。
+                            嵩山脚下，少林寺、嵩阳书院、中岳庙等名胜古迹星罗棋布。从黄河滩涂的湿地公园到嵩山之巅的日出云海，
+                            郑州的自然风光既有北方的粗犷豪迈，又不失中原的温润秀美。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/黄河文化公园.jpg"
+                             alt="Yellow River Park"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">黄河文化公园</h3>
+                        <p class="card-text">
+                            站在邙山之上，俯瞰黄河浩荡东流。炎黄二帝106米高的巨型塑像屹立在黄河岸边，是世界上最高的雕塑之一，
+                            凝视着这片他们曾经耕耘过的土地。每年清明时节，海内外华人来此寻根祭祖，感受黄河文明的源远流长。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="card-img-wrap">
+                        <img src="images/中岳嵩山.jpg"
+                             alt="Mount Songshan"
+                             loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">中岳嵩山</h3>
+                        <p class="card-text">
+                            五岳之中，天地之中。峻极峰海拔1491米，是嵩山的最高峰；三皇寨的丹霞地貌奇秀险峻；太室山与少室山对峙相望。
+                            作为世界地质公园和世界文化遗产，嵩山不仅是自然奇观，更是中华文明的精神高地。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多自然景观 -->
+            <div class="nature-grid">
+                <div class="grid-3">
+                    <div class="glass-card feature-card">
+                        <div class="card-img-wrap">
+                            <img src="images/黄河文化公园.jpg"
+                                 alt="Yellow River Wetland"
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">黄河湿地公园</h3>
+                            <p class="card-text">
+                                黄河郑州段湿地是候鸟迁徙的重要驿站，每年都有成千上万只候鸟在此栖息。芦苇荡漾，水鸟翱翔，
+                                展现着黄河生态保护的成果和人与自然和谐共生的美好画面。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card feature-card">
+                        <div class="card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80"
+                                 alt="Mountain Sunrise"
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">嵩山日出</h3>
+                            <p class="card-text">
+                                凌晨登顶峻极峰，等待日出的那一刻。当第一缕阳光洒向中原大地，云海翻涌，金光万道，
+                                仿佛能听见历史的回响，感受到"天地之中"的磅礴气势。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card feature-card">
+                        <div class="card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=600&q=80"
+                                 alt="Forest Park"
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">邙山森林公园</h3>
+                            <p class="card-text">
+                                郑州北部的天然氧吧，森林覆盖率达90%以上。春天山花烂漫，夏日绿树成荫，秋来层林尽染，冬至银装素裹，
+                                是市民休闲健身的理想场所。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="margin-top: var(--section-spacing); padding: 3rem; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-dim); font-size: var(--font-sm);">
+        <p style="letter-spacing: 2px;">ZHENGZHOU DIGITAL EXPERIENCE</p>
+        <p style="margin-top: 0.5rem; opacity: 0.5;">&copy; 2025 DESIGNED WITH PASSION</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/navigation.js"></script>
+    <script src="js/food-display.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

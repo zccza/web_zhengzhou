@@ -1,0 +1,312 @@
+/* =========================================
+   页面特定样式
+   ========================================= */
+
+/* 首页 - 城市介绍区块 */
+.city-intro {
+    margin-bottom: var(--section-spacing);
+}
+
+.city-intro .glass-card {
+    padding: 3rem;
+    text-align: center;
+}
+
+.city-intro h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.city-intro .card-text {
+    font-size: var(--font-lg);
+    line-height: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+}
+
+/* 区块标题 */
+.section-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.section-title {
+    font-size: var(--font-4xl);
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: var(--font-sm);
+    font-weight: 600;
+}
+
+/* 美食页 - 交互式展示 */
+.food-showcase {
+    margin-bottom: 3rem;
+}
+
+.food-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 450px;
+    overflow: hidden;
+}
+
+.food-display-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        var(--glass-bg) 0%,
+        rgba(212, 175, 55, 0.05) 100%
+    );
+}
+
+.food-display-nav {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.food-display-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    transition: all var(--transition-normal);
+}
+
+.food-display-desc {
+    font-size: var(--font-base);
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+
+.food-display-footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.food-display-label {
+    display: block;
+    font-size: var(--font-xs);
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.food-display-location {
+    font-size: var(--font-xl);
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.food-display-image {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.food-display-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--transition-slower) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover .food-display-image img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* 现代页 - 高铁时刻表 */
+.train-schedule {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.train-schedule li {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-normal);
+}
+
+.train-schedule li:last-child {
+    border-bottom: none;
+}
+
+.train-schedule li:hover {
+    padding-left: 0.5rem;
+    background: var(--glass-bg);
+}
+
+.train-schedule .destination {
+    font-size: var(--font-lg);
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.train-schedule .duration {
+    color: var(--accent-gold);
+    font-size: var(--font-lg);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* 自然页 - 双栏布局 */
+.nature-grid {
+    margin-top: var(--section-spacing);
+}
+
+/* 图片覆盖文字效果 */
+.image-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.6) 50%,
+        transparent 100%
+    );
+}
+
+.image-overlay-text h3 {
+    font-size: var(--font-2xl);
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.image-overlay-text p {
+    font-size: var(--font-sm);
+    color: var(--text-muted);
+}
+
+/* 特色卡片变体 */
+.feature-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left var(--transition-slower);
+}
+
+.feature-card:hover::before {
+    left: 100%;
+}
+
+/* 大型特色展示卡片 */
+.hero-card {
+    margin-top: var(--section-spacing);
+}
+
+.hero-card .card-img-wrap {
+    height: 400px;
+}
+
+.hero-card .card-title {
+    font-size: var(--font-4xl);
+    margin-bottom: 1rem;
+}
+
+.hero-card .card-text {
+    font-size: var(--font-lg);
+    line-height: 2;
+}
+
+/* 响应式调整 */
+@media (max-width: 968px) {
+    .food-display {
+        grid-template-columns: 1fr;
+    }
+
+    .food-display-image {
+        min-height: 350px;
+    }
+
+    .food-display-content {
+        order: 2;
+    }
+
+    .food-display-image {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .hero-card .card-img-wrap {
+        height: 300px;
+    }
+
+    .hero-card .card-title {
+        font-size: var(--font-3xl);
+    }
+
+    .train-schedule li {
+        padding: 1rem 0;
+    }
+
+    .train-schedule .destination,
+    .train-schedule .duration {
+        font-size: var(--font-base);
+    }
+}
+
+@media (max-width: 480px) {
+    .city-intro .glass-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .food-display-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: var(--font-3xl);
+    }
+
+    .hero-card .card-img-wrap {
+        height: 250px;
+    }
+}

@@ -1,0 +1,232 @@
+/* =========================================
+   响应式设计 - 移动端适配
+   ========================================= */
+
+/* 平板设备 */
+@media (max-width: 1024px) {
+    :root {
+        --container-padding: 30px;
+        --card-spacing: 2rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* 移动设备 */
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 20px;
+        --nav-height: 70px;
+        --section-spacing: 3rem;
+        --card-spacing: 1.5rem;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    /* 网格布局调整 */
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* 卡片调整 */
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: var(--font-xl);
+    }
+
+    .card-img-wrap {
+        height: 200px;
+    }
+
+    /* 按钮调整 */
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+
+    /* 容器调整 */
+    .container {
+        padding: 0 20px;
+    }
+
+    /* 隐藏桌面元素 */
+    .hide-mobile {
+        display: none !important;
+    }
+
+    /* 显示移动端元素 */
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+/* 小屏手机 */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 16px;
+        --section-spacing: 2rem;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    /* 卡片进一步调整 */
+    .card-content {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: var(--font-lg);
+    }
+
+    .card-text {
+        font-size: var(--font-sm);
+        line-height: 1.6;
+    }
+
+    .card-img-wrap {
+        height: 180px;
+    }
+
+    /* 按钮调整 */
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    /* 页面间距 */
+    .page-view {
+        padding-bottom: 60px;
+    }
+}
+
+/* 超大屏幕优化 */
+@media (min-width: 1600px) {
+    :root {
+        --container-width: 1400px;
+        --font-base: 1.0625rem;
+    }
+
+    .page-header {
+        min-height: 500px;
+    }
+
+    .card-img-wrap {
+        height: 280px;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 增大可触摸区域 */
+    .btn,
+    .nav-item,
+    .menu-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* 移除悬停效果 */
+    .glass-card:hover {
+        transform: none;
+    }
+
+    .glass-card:active {
+        transform: scale(0.98);
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* 横屏手机适配 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .page-header {
+        height: 100vh;
+        min-height: auto;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+
+    .header-desc {
+        font-size: 0.9rem;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .navbar,
+    .btn,
+    .scroll-indicator,
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .page-view {
+        display: block !important;
+        opacity: 1 !important;
+        page-break-after: always;
+    }
+
+    .glass-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #000;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+}
+
+/* 辅助功能 - 减少动画 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    :root {
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --text-muted: #cbd5e1;
+    }
+
+    .glass-card {
+        border-width: 2px;
+    }
+
+    .btn {
+        border-width: 2px;
+    }
+}

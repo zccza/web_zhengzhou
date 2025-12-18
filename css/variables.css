@@ -1,0 +1,68 @@
+/* =========================================
+   设计系统 - 全局变量
+   ========================================= */
+:root {
+    /* 核心色彩 - 深邃高级感 */
+    --bg-deep: #050a14;
+    --bg-surface: #0a0f1a;
+    --accent-gold: #d4af37;
+    --accent-red: #aa2222;
+    --accent-blue: #4a90e2;
+    --text-main: #ffffff;
+    --text-secondary: #e5e7eb;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+
+    /* 玻璃拟态效果 */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-bg-hover: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(212, 175, 55, 0.3);
+    --glass-blur: 20px;
+
+    /* 阴影系统 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --shadow-glow-gold: 0 0 20px rgba(212, 175, 55, 0.3);
+
+    /* 布局参数 */
+    --nav-height: 80px;
+    --container-width: 1200px;
+    --container-padding: 40px;
+    --section-spacing: 4rem;
+    --card-spacing: 2.5rem;
+
+    /* 动画时间 */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.4s;
+    --transition-slower: 0.6s;
+
+    /* 字体大小 */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.875rem;
+    --font-4xl: 2.25rem;
+    --font-5xl: 3rem;
+    --font-6xl: 3.75rem;
+
+    /* 圆角 */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 50px;
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
