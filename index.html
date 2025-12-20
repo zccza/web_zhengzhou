@@ -33,7 +33,21 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏙️</text></svg>">
 </head>
-<body>
+<body class="extreme-mode">
+    <!-- 全局动态背景 -->
+    <div class="global-bg-effects">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        <div class="bg-blob blob-3"></div>
+        <div class="bg-grid-overlay"></div>
+    </div>
+
+    <!-- 页面切换遮罩 -->
+    <div class="page-transition-overlay">
+        <div class="overlay-bar"></div>
+        <div class="overlay-bar"></div>
+        <div class="overlay-bar"></div>
+    </div>
 
     <!-- 导航栏 -->
     <nav class="navbar" id="navbar">
@@ -81,11 +95,11 @@
             <div class="header-overlay"></div>
 
             <div class="header-content">
-                <span class="header-tag">The Heart of China</span>
-                <h1 class="header-title" style="font-size: clamp(3rem, 10vw, 5rem);">
-                    郑州 · 未止
+                <span class="header-tag" style="letter-spacing: 4px; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">THE HEART OF CHINA</span>
+                <h1 class="header-title" style="font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 900; letter-spacing: 4px; margin: 1rem 0;">
+                    郑州 <span style="color: var(--accent-gold);">·</span> 未止
                 </h1>
-                <p class="header-desc" style="font-size: clamp(1rem, 2.5vw, 1.3rem); max-width: 600px; margin: 0 auto 2rem;">
+                <p class="header-desc" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.8; opacity: 0.9; font-weight: 300;">
                     一座火车拉来的古都，一个3600年生生不息的传奇。<br>
                     在这里，听见历史的回响，看见未来的光亮。
                 </p>
@@ -195,6 +209,7 @@
 
     <!-- 页面2: 历史 -->
     <div id="page-history" class="page-view">
+        <div class="extreme-bg-text text-history">ANCIENT</div>
         <header class="page-header">
             <img src="images/郑州商城遗址.jpg"
                  class="header-bg"
@@ -324,6 +339,7 @@
 
     <!-- 页面3: 现代 -->
     <div id="page-modern" class="page-view">
+        <div class="extreme-bg-text text-modern">MODERN</div>
         <header class="page-header">
             <img src="images/郑东新区如意湖夜景图.jpg"
                  class="header-bg"
@@ -434,7 +450,7 @@
     <!-- 页面4: 美食 -->
     <div id="page-food" class="page-view">
         <header class="page-header">
-            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=1920&q=80"
+            <img src="images/郑州美食话辣汤.jpg"
                  class="header-bg"
                  alt="Chinese Cuisine"
                  loading="lazy">
@@ -571,15 +587,15 @@
                 </div>
             </div>
 
-            <div class="grid-2">
-                <div class="glass-card feature-card">
-                    <div class="card-img-wrap">
-                        <img src="images/黄河文化公园.jpg"
-                             alt="Yellow River Park"
-                             loading="lazy">
+            <div class="nature-grid">
+                <!-- 错落行 1 -->
+                <div class="nature-row">
+                    <div class="nature-image">
+                        <img src="images/黄河文化公园.jpg" alt="Yellow River Park" class="img-responsive">
                     </div>
-                    <div class="card-content">
-                        <h3 class="card-title">黄河文化公园</h3>
+                    <div class="nature-content">
+                        <span class="badge badge-gold mb-2">MOTHER RIVER</span>
+                        <h2 class="section-title">黄河文化公园</h2>
                         <p class="card-text">
                             站在邙山之上，俯瞰黄河浩荡东流。炎黄二帝106米高的巨型塑像屹立在黄河岸边，是世界上最高的雕塑之一，
                             凝视着这片他们曾经耕耘过的土地。每年清明时节，海内外华人来此寻根祭祖，感受黄河文明的源远流长。
@@ -587,24 +603,24 @@
                     </div>
                 </div>
 
-                <div class="glass-card feature-card">
-                    <div class="card-img-wrap">
-                        <img src="images/中岳嵩山.jpg"
-                             alt="Mount Songshan"
-                             loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">中岳嵩山</h3>
+                <!-- 错落行 2 -->
+                <div class="nature-row reverse">
+                    <div class="nature-content">
+                        <span class="badge badge-gold mb-2">SACRED MOUNTAIN</span>
+                        <h2 class="section-title">中岳嵩山</h2>
                         <p class="card-text">
                             五岳之中，天地之中。峻极峰海拔1491米，是嵩山的最高峰；三皇寨的丹霞地貌奇秀险峻；太室山与少室山对峙相望。
                             作为世界地质公园和世界文化遗产，嵩山不仅是自然奇观，更是中华文明的精神高地。
                         </p>
                     </div>
+                    <div class="nature-image">
+                        <img src="images/中岳嵩山.jpg" alt="Mount Songshan" class="img-responsive">
+                    </div>
                 </div>
             </div>
 
             <!-- 更多自然景观 -->
-            <div class="nature-grid">
+            <div class="nature-grid-legacy" style="margin-top: 8rem;">
                 <div class="grid-3">
                     <div class="glass-card feature-card">
                         <div class="card-img-wrap">

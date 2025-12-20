@@ -15,15 +15,15 @@ class FoodDisplay {
             noodle: {
                 title: "羊肉烩面",
                 desc: "郑州的招牌美食,宽面筋道有嚼劲,汤底用羊肉羊骨熬制数小时,汤色乳白醇厚。加入海带丝、豆腐丝、粉条、香菜,浇上特制辣椒油,一碗下肚,满口留香。这不仅是一碗面,更是郑州人的待客之道和家乡味道。每一根面条都承载着中原人的热情好客,每一口汤都是时间熬制的精华。",
-                img: "images/郑州美食话辣汤.jpg",
-                fallback: "https://placehold.co/800x600/8b4513/fff?text=Noodle",
+                img: "images/郑州美食话辣汤.jpg", // 这里应该是烩面的图，但目前代码里写错了
+                fallback: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=800&q=80",
                 location: "合记 · 萧记 · 四厂烩面"
             },
             bbq: {
                 title: "健康路夜市",
                 desc: "郑州最具人气的夜市,从晚上7点到凌晨2点,这里是城市的深夜食堂。红柳烤肉、烤面筋、烤鱿鱼、砂锅、炒凉粉、铁板鱿鱼……烟火缭绕中,食客们围坐在小摊前,大快朵颐。这里有郑州最不加修饰的热情和最地道的江湖气。霓虹灯下,每一串烧烤都是城市烟火气的缩影。",
-                img: "images/郑州美食话辣汤.jpg",
-                fallback: "https://placehold.co/800x600/c41e3a/fff?text=Night+Market",
+                img: "images/炒凉粉.jpg",
+                fallback: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
                 location: "健康路 · 汝河路 · 农科路夜市"
             }
         };
@@ -74,10 +74,12 @@ class FoodDisplay {
         buttons.forEach((btn, i) => {
             if (i === activeIndex) {
                 btn.classList.add('btn-gold');
-                btn.classList.remove('btn');
+                btn.style.background = 'var(--accent-gold)';
+                btn.style.color = 'var(--bg-deep)';
             } else {
                 btn.classList.remove('btn-gold');
-                btn.classList.add('btn');
+                btn.style.background = 'transparent';
+                btn.style.color = 'var(--text-main)';
             }
         });
     }

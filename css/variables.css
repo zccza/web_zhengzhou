@@ -3,22 +3,23 @@
    ========================================= */
 :root {
     /* 核心色彩 - 深邃高级感 */
-    --bg-deep: #050a14;
-    --bg-surface: #0a0f1a;
-    --accent-gold: #d4af37;
-    --accent-red: #aa2222;
-    --accent-blue: #4a90e2;
+    --bg-deep: #03070e;
+    --bg-surface: #080c14;
+    --accent-gold: #c5a028;
+    --accent-gold-light: #f1d279;
+    --accent-red: #b32d2d;
+    --accent-blue: #3a82d6;
     --text-main: #ffffff;
-    --text-secondary: #e5e7eb;
-    --text-muted: #94a3b8;
-    --text-dim: #64748b;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
 
     /* 玻璃拟态效果 */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-bg-hover: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-hover: rgba(212, 175, 55, 0.3);
-    --glass-blur: 20px;
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-bg-hover: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-border-hover: rgba(197, 160, 40, 0.4);
+    --glass-blur: 25px;
 
     /* 阴影系统 */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -58,6 +59,12 @@
     --radius-lg: 16px;
     --radius-xl: 20px;
     --radius-full: 50px;
+
+    /* 动态装饰色 */
+    --glow-gold: rgba(197, 160, 40, 0.15);
+    --glow-white: rgba(255, 255, 255, 0.05);
+    --accent-cyan: #00f2ff;
+    --accent-purple: #bc00ff;
 }
 
 /* 深色模式支持 */

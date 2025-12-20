@@ -12,6 +12,9 @@ class Animations {
         this.setupParallaxEffect();
         this.setupHoverEffects();
         this.setupLazyLoading();
+        this.setupCursorEffect();
+        this.setupAdvancedParallax();
+        this.setupMagneticButtons();
     }
 
     /**
@@ -35,7 +38,7 @@ class Animations {
         }, observerOptions);
 
         // 观察所有卡片
-        const animateElements = document.querySelectorAll('.glass-card, .header-content');
+        const animateElements = document.querySelectorAll('.glass-card, .header-content, .section-header, .city-intro');
         animateElements.forEach(el => observer.observe(el));
     }
 
@@ -189,20 +192,111 @@ class Animations {
             }
         }, speed);
     }
+
+    /**
+     * 视差滚动增强 (花活)
+     */
+    setupAdvancedParallax() {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // 装饰性背景元素视差
+            const decorators = document.querySelectorAll('.nature-image::after');
+            decorators.forEach((dec, i) => {
+                const speed = 0.2 + (i * 0.1);
+                dec.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+
+            // 页面标题视差
+            const titles = document.querySelectorAll('.header-title');
+            titles.forEach(title => {
+                const speed = 0.15;
+                title.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+
+            // 极限背景大字视差
+            const bgTexts = document.querySelectorAll('.extreme-bg-text');
+            bgTexts.forEach((text, i) => {
+                const speed = (i + 1) * 0.3;
+                text.style.transform = `translateY(${scrolled * speed}px) rotate(${(i % 2 === 0 ? -5 : 5)}deg)`;
+            });
+        }, { passive: true });
+    }
+
+    /**
+     * 磁性按钮效果 (极限炫酷)
+     */
+    setupMagneticButtons() {
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+    }
+
+    /**
+     * 自定义鼠标跟随效果
+     */
+    setupCursorEffect() {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        const cursorFollower = document.createElement('div');
+        cursorFollower.className = 'custom-cursor-follower';
+        document.body.appendChild(cursorFollower);
+
+        document.addEventListener('mousemove', (e) => {
+            const { clientX: x, clientY: y } = e;
+            
+            cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            
+            // 延迟跟随
+            setTimeout(() => {
+                cursorFollower.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            }, 50);
+        });
+
+        // 悬停交互
+        const interactiveElements = document.querySelectorAll('a, button, .glass-card, .nav-item');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('active');
+                cursorFollower.classList.add('active');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+                cursorFollower.classList.remove('active');
+            });
+        });
+    }
 }
 
 // 添加CSS类用于动画
 const style = document.createElement('style');
 style.textContent = `
     .glass-card,
-    .header-content {
+    .header-content,
+    .section-header,
+    .city-intro {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .glass-card.animate-in,
-    .header-content.animate-in {
+    .header-content.animate-in,
+    .section-header.animate-in,
+    .city-intro.animate-in {
         opacity: 1;
         transform: translateY(0);
     }
@@ -219,6 +313,53 @@ style.textContent = `
     .glass-card {
         transition: transform 0.3s ease;
         will-change: transform;
+    }
+
+    /* 自定义光标样式 */
+    .custom-cursor {
+        width: 8px;
+        height: 8px;
+        background: var(--accent-gold);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    }
+
+    .custom-cursor-follower {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--accent-gold);
+        border-radius: 50%;
+        position: fixed;
+        top: -16px;
+        left: -16px;
+        pointer-events: none;
+        z-index: 9998;
+        transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, border 0.3s ease, background 0.3s ease;
+        opacity: 0.5;
+    }
+
+    .custom-cursor.active {
+        width: 12px;
+        height: 12px;
+        background: var(--text-main);
+    }
+
+    .custom-cursor-follower.active {
+        width: 60px;
+        height: 60px;
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--text-main);
+    }
+
+    @media (max-width: 1024px) {
+        .custom-cursor, .custom-cursor-follower {
+            display: none;
+        }
     }
 `;
 document.head.appendChild(style);

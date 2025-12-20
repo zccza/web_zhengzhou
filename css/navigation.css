@@ -10,22 +10,23 @@
     height: var(--nav-height);
     background: linear-gradient(
         to bottom,
-        rgba(5, 10, 20, 0.9) 0%,
-        rgba(5, 10, 20, 0) 100%
+        rgba(3, 7, 14, 0.9) 0%,
+        rgba(3, 7, 14, 0) 100%
     );
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-normal) ease;
+    transition: all var(--transition-normal) cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .navbar.scrolled {
-    background: rgba(5, 10, 20, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(3, 7, 14, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border-bottom: 1px solid var(--glass-border);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    height: 70px;
 }
 
 .nav-container {

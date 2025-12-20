@@ -2,6 +2,22 @@
    页面特定样式
    ========================================= */
 
+/* 极限炫酷装饰元素 */
+.extreme-bg-text {
+    position: fixed;
+    font-size: 20vw;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    z-index: -1;
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.text-history { top: 10%; left: -5%; transform: rotate(-5deg); }
+.text-modern { bottom: 10%; right: -5%; transform: rotate(5deg); }
+
 /* 首页 - 城市介绍区块 */
 .city-intro {
     margin-bottom: var(--section-spacing);
@@ -13,11 +29,15 @@
 }
 
 .city-intro h2 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    margin-bottom: 2rem;
     color: var(--accent-gold);
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, var(--accent-gold-light), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .city-intro .card-text {
@@ -37,10 +57,23 @@
 }
 
 .section-title {
-    font-size: var(--font-4xl);
-    font-weight: 700;
+    font-size: var(--font-5xl);
+    font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-gold);
+    border-radius: 2px;
 }
 
 .section-subtitle {
@@ -58,21 +91,35 @@
 
 .food-display {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 450px;
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 550px;
     overflow: hidden;
+    border-radius: var(--radius-xl);
 }
 
 .food-display-content {
-    padding: 3rem;
+    padding: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(
         135deg,
-        var(--glass-bg) 0%,
-        rgba(212, 175, 55, 0.05) 100%
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(197, 160, 40, 0.05) 100%
     );
+    position: relative;
+}
+
+.food-display-content::before {
+    content: 'CUISINE';
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    letter-spacing: 10px;
 }
 
 .food-display-nav {
@@ -83,11 +130,14 @@
 }
 
 .food-display-title {
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     color: var(--accent-gold);
-    margin-bottom: 1rem;
-    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
     transition: all var(--transition-normal);
+    background: linear-gradient(to right, var(--accent-gold-light), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .food-display-desc {
@@ -120,61 +170,127 @@
 .food-display-image {
     position: relative;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.3);
+    background: #000;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
 }
 
 .food-display-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all var(--transition-slower) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, filter 0.5s ease;
 }
 
 .glass-card:hover .food-display-image img {
-    transform: scale(1.05);
+    transform: scale(1.1);
     filter: brightness(1.1);
 }
 
-/* 现代页 - 高铁时刻表 */
+/* 现代页 - 高铁时刻表 (花活: 悬浮卡片流) */
 .train-schedule {
     list-style: none;
     margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .train-schedule li {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--glass-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all var(--transition-normal);
-}
-
-.train-schedule li:last-child {
-    border-bottom: none;
-}
-
-.train-schedule li:hover {
-    padding-left: 0.5rem;
     background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.train-schedule li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gold);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.train-schedule li:hover::before {
+    transform: scaleY(1);
 }
 
 .train-schedule .destination {
-    font-size: var(--font-lg);
+    font-size: var(--font-xl);
     color: var(--text-main);
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .train-schedule .duration {
     color: var(--accent-gold);
-    font-size: var(--font-lg);
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
+    font-size: var(--font-2xl);
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-/* 自然页 - 双栏布局 */
+/* 自然页 - 错落布局 (花活) */
 .nature-grid {
     margin-top: var(--section-spacing);
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+}
+
+.nature-row {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.nature-row.reverse {
+    grid-template-columns: 0.8fr 1.2fr;
+}
+
+.nature-row.reverse .nature-content {
+    order: 1;
+}
+
+.nature-row.reverse .nature-image {
+    order: 2;
+}
+
+.nature-image {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.nature-image::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle, var(--glow-gold) 0%, transparent 70%);
+    z-index: -1;
+    animation: pulse 8s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.3; }
+    to { transform: scale(1.2); opacity: 0.6; }
 }
 
 /* 图片覆盖文字效果 */
@@ -183,13 +299,21 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem;
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.6) 50%,
+        rgba(3, 7, 14, 1) 0%,
+        rgba(3, 7, 14, 0.8) 40%,
         transparent 100%
     );
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-img-wrap:hover .image-overlay-text {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .image-overlay-text h3 {

@@ -29,19 +29,82 @@ body {
     position: relative;
 }
 
-/* 背景纹理效果 */
-body::before {
-    content: '';
+/* 极限炫酷全局背景 */
+.global-bg-effects {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.03) 0%, transparent 50%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
     pointer-events: none;
-    z-index: 0;
+}
+
+.bg-blob {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--glow-gold) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.4;
+    border-radius: 50%;
+}
+
+.blob-1 { top: -10%; left: -10%; animation: floatBlob 20s infinite alternate; }
+.blob-2 { bottom: -10%; right: -10%; background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%); animation: floatBlob 25s infinite alternate-reverse; }
+.blob-3 { top: 40%; left: 50%; background: radial-gradient(circle, rgba(188, 0, 255, 0.05) 0%, transparent 70%); animation: floatBlob 30s infinite linear; }
+
+@keyframes floatBlob {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 50px) scale(1.2); }
+}
+
+.bg-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* 页面切换遮罩 */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.overlay-bar {
+    flex: 1;
+    background: var(--bg-deep);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.page-transition-overlay.active .overlay-bar {
+    animation: barTransition 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+.page-transition-overlay.active .overlay-bar:nth-child(2) { animation-delay: 0.1s; }
+.page-transition-overlay.active .overlay-bar:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes barTransition {
+    0% { transform: scaleX(0); transform-origin: left; }
+    50% { transform: scaleX(1); transform-origin: left; }
+    51% { transform: scaleX(1); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
 }
 
 /* 移除默认样式 */

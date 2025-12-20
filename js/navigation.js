@@ -128,31 +128,38 @@ class Navigation {
      * 页面切换
      */
     switchPage(pageId) {
-        // 更新导航状态
-        this.updateNavState(pageId);
+        const overlay = document.querySelector('.page-transition-overlay');
+        if (!overlay) return;
 
-        // 切换页面
-        const pages = document.querySelectorAll('.page-view');
-        pages.forEach(page => {
-            page.style.opacity = '0';
-            setTimeout(() => {
+        // 启动全屏遮罩动画
+        overlay.classList.add('active');
+
+        setTimeout(() => {
+            // 更新导航状态
+            this.updateNavState(pageId);
+
+            // 切换页面
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => {
                 page.classList.remove('active');
                 if (page.id === `page-${pageId}`) {
                     page.classList.add('active');
-                    // 强制重绘
-                    void page.offsetWidth;
-                    page.style.opacity = '1';
                 }
-            }, 400);
-        });
+            });
 
-        // 滚动到顶部
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+            // 滚动到顶部
+            window.scrollTo(0, 0);
 
-        // 更新URL（不刷新页面）
-        if (history.pushState) {
-            history.pushState(null, null, `#${pageId}`);
-        }
+            // 更新URL（不刷新页面）
+            if (history.pushState) {
+                history.pushState(null, null, `#${pageId}`);
+            }
+        }, 600);
+
+        // 动画结束后移除类
+        setTimeout(() => {
+            overlay.classList.remove('active');
+        }, 1200);
     }
 
     /**
