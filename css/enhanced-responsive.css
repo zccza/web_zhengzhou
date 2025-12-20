@@ -1,0 +1,450 @@
+/* =========================================
+   增强响应式设计 - 移动端优化
+   ========================================= */
+
+/* 基础响应式断点 */
+:root {
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+}
+
+/* 超小屏幕 (手机竖屏) */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 20px;
+        --section-spacing: 2.5rem;
+        --card-spacing: 1.5rem;
+    }
+
+    /* 字体大小调整 */
+    html {
+        font-size: 14px;
+    }
+
+    /* 导航栏优化 */
+    .navbar {
+        padding: 0 20px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    /* 页面标题 */
+    .header-title {
+        font-size: clamp(2.5rem, 10vw, 4rem) !important;
+        letter-spacing: 2px !important;
+    }
+
+    .header-tag {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    /* 卡片布局 */
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .glass-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: var(--font-xl);
+    }
+
+    /* 按钮优化 */
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.75rem;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* 美食展示 */
+    .food-display {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .food-display-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .food-display-title {
+        font-size: var(--font-3xl);
+    }
+
+    /* 图片容器 */
+    .card-img-wrap {
+        height: 180px;
+    }
+
+    .hero-card .card-img-wrap {
+        height: 200px;
+    }
+
+    /* 自然页错落布局 */
+    .nature-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .nature-row.reverse .nature-content,
+    .nature-row.reverse .nature-image {
+        order: unset;
+    }
+
+    /* 粒子效果优化 */
+    .particles-container {
+        display: none;
+    }
+
+    /* 鼠标效果禁用 */
+    .custom-cursor,
+    .custom-cursor-follower,
+    .mouse-glow {
+        display: none !important;
+    }
+
+    /* 滚动指示器 */
+    .scroll-indicator-advanced {
+        display: none;
+    }
+
+    /* 城市介绍 */
+    .city-intro h2 {
+        font-size: var(--font-2xl);
+    }
+
+    .city-intro .card-text {
+        font-size: var(--font-base);
+    }
+
+    /* 简化动画 */
+    .glass-card:hover {
+        transform: none;
+    }
+
+    .glass-card:hover .card-img-wrap img {
+        transform: none;
+    }
+
+    /* 故障效果禁用 */
+    .page-header .header-title::before,
+    .page-header .header-title::after {
+        display: none;
+    }
+
+    /* 高铁时刻表 */
+    .train-schedule {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .train-schedule li {
+        padding: 1rem;
+    }
+}
+
+/* 小屏幕 (手机横屏) */
+@media (min-width: 481px) and (max-width: 640px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .header-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .btn {
+        width: auto;
+        min-width: 140px;
+    }
+}
+
+/* 中等屏幕 (平板) */
+@media (min-width: 641px) and (max-width: 768px) {
+    :root {
+        --container-padding: 30px;
+        --section-spacing: 3rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-display {
+        grid-template-columns: 1fr;
+    }
+
+    .food-display-content {
+        padding: 3rem;
+    }
+
+    .header-title {
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+
+    /* 减少粒子数量 */
+    .particles-container {
+        opacity: 0.5;
+    }
+
+    /* 简化鼠标效果 */
+    .mouse-glow {
+        opacity: 0.3;
+    }
+}
+
+/* 大屏幕 (笔记本) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* 优化性能 */
+    .particles-container {
+        opacity: 0.7;
+    }
+
+    /* 减少动画复杂度 */
+    .glass-card:hover {
+        transform: translateY(-8px) scale(1.01);
+    }
+}
+
+/* 超大屏幕 (桌面) */
+@media (min-width: 1025px) {
+    :root {
+        --container-width: 1400px;
+        --container-padding: 60px;
+    }
+
+    /* 增强视觉效果 */
+    .particles-container {
+        opacity: 1;
+    }
+
+    /* 3D效果增强 */
+    .glass-card:hover {
+        transform: translateY(-12px) scale(1.02);
+    }
+
+    /* 视差效果优化 */
+    .header-bg {
+        will-change: transform;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 禁用悬停效果 */
+    .glass-card:hover {
+        transform: none;
+    }
+
+    .glass-card:hover .card-img-wrap img {
+        transform: none;
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+
+    /* 增大点击区域 */
+    .nav-item,
+    .btn,
+    .card-img-wrap {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* 禁用鼠标效果 */
+    .custom-cursor,
+    .custom-cursor-follower,
+    .mouse-glow {
+        display: none !important;
+    }
+
+    /* 简化过渡 */
+    * {
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* 高分辨率屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* 提升图像质量 */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    /* 优化文字渲染 */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .particles-container {
+        display: none;
+    }
+
+    .scan-line {
+        display: none;
+    }
+
+    .glitch-effect {
+        display: none;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    * {
+        background: none !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+
+    .navbar,
+    .page-transition-overlay,
+    .particles-container,
+    .scroll-indicator-advanced,
+    .mouse-glow {
+        display: none !important;
+    }
+
+    .page-view {
+        display: block !important;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* 横屏模式优化 */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .navbar {
+        height: 50px;
+    }
+
+    .header-content {
+        padding: 2rem 0;
+    }
+
+    .header-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .header-desc {
+        font-size: var(--font-sm);
+    }
+
+    /* 压缩间距 */
+    .section-spacing {
+        margin: 2rem 0;
+    }
+}
+
+/* 性能优化 - 低端设备 */
+@media (max-width: 768px) and (max-height: 1024px) {
+    /* 减少模糊效果 */
+    .glass-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(8, 12, 20, 0.9);
+    }
+
+    /* 简化阴影 */
+    .glass-card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 禁用复杂动画 */
+    .bg-blob {
+        display: none;
+    }
+}
+
+/* 可访问性增强 */
+@media (prefers-contrast: high) {
+    :root {
+        --glass-bg: rgba(0, 0, 0, 0.8);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --text-muted: #ccc;
+    }
+
+    .glass-card {
+        border-width: 2px;
+    }
+}
+
+/* 焦点可见性增强 */
+.btn:focus-visible,
+.nav-item:focus-visible,
+.card-img-wrap:focus-visible {
+    outline: 3px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* 加载状态优化 */
+@media (prefers-reduced-data: reduce) {
+    /* 禁用背景图像 */
+    .header-bg,
+    .card-img-wrap img {
+        background-image: none !important;
+    }
+
+    /* 使用简化粒子 */
+    .particle {
+        display: none;
+    }
+}

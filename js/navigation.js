@@ -125,8 +125,12 @@ class Navigation {
     }
 
     /**
-     * 页面切换
+     * 页面切换 - 公共方法
      */
+    navigateTo(pageId) {
+        this.switchPage(pageId);
+    }
+
     switchPage(pageId) {
         const overlay = document.querySelector('.page-transition-overlay');
         if (!overlay) return;
@@ -154,6 +158,11 @@ class Navigation {
             if (history.pushState) {
                 history.pushState(null, null, `#${pageId}`);
             }
+            
+            // 触发页面切换事件
+            window.dispatchEvent(new CustomEvent('pageChanged', {
+                detail: { pageId }
+            }));
         }, 600);
 
         // 动画结束后移除类

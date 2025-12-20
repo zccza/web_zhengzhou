@@ -1,0 +1,588 @@
+/* =========================================
+   高级视觉效果 - 独特页面风格
+   ========================================= */
+
+/* 为每个页面定义独特的主题色 */
+:root {
+    /* 首页 - 蓝金科技风 */
+    --home-primary: #050a14;
+    --home-accent: #c5a028;
+    --home-secondary: #3a82d6;
+    
+    /* 历史页 - 古铜金历史风 */
+    --history-primary: #1a0f08;
+    --history-accent: #b8860b;
+    --history-secondary: #8b4513;
+    
+    /* 现代页 - 银青未来风 */
+    --modern-primary: #0a1118;
+    --modern-accent: #00f2ff;
+    --modern-secondary: #00d4ff;
+    
+    /* 美食页 - 暖橙食欲风 */
+    --food-primary: #1a0803;
+    --food-accent: #ff6b35;
+    --food-secondary: #ffa500;
+    
+    /* 自然页 - 青绿生态风 */
+    --nature-primary: #050a05;
+    --nature-accent: #00c896;
+    --nature-secondary: #7fdbda;
+}
+
+/* 页面特定背景效果 */
+.page-view {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-view::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 首页 - 星空粒子背景 */
+#page-home::before {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+#page-home::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 50px 50px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 80px 10px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: sparkle 20s linear infinite;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#page-home.active::after {
+    opacity: 1;
+}
+
+@keyframes sparkle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* 历史页 - 古卷轴纹理背景 */
+#page-history::before {
+    background: linear-gradient(45deg, #1a0f08 0%, #2c1810 50%, #1a0f08 100%);
+    background-size: 400% 400%;
+    animation: ancientPulse 15s ease infinite;
+}
+
+@keyframes ancientPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#page-history::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.05;
+    background-image: 
+        repeating-linear-gradient(90deg, 
+            transparent, 
+            transparent 100px, 
+            rgba(184, 134, 11, 0.1) 100px, 
+            rgba(184, 134, 11, 0.1) 101px),
+        repeating-linear-gradient(0deg, 
+            transparent, 
+            transparent 100px, 
+            rgba(184, 134, 11, 0.1) 100px, 
+            rgba(184, 134, 11, 0.1) 101px);
+    pointer-events: none;
+}
+
+/* 现代页 - 数字网格背景 */
+#page-modern::before {
+    background: linear-gradient(135deg, #0a1118 0%, #061119 100%);
+}
+
+#page-modern::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 10s linear infinite;
+}
+
+@keyframes gridMove {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 50px); }
+}
+
+/* 美食页 - 温暖渐变背景 */
+#page-food::before {
+    background: radial-gradient(circle at center, #2a1508 0%, #1a0803 100%);
+}
+
+#page-food::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+    animation: foodGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes foodGlow {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.2); }
+}
+
+/* 自然页 - 竹叶纹理背景 */
+#page-nature::before {
+    background: linear-gradient(180deg, #050a05 0%, #0d140d 100%);
+}
+
+#page-nature::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(ellipse at 20% 30%, rgba(0, 200, 150, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(127, 219, 218, 0.05) 0%, transparent 50%);
+    animation: natureBreath 12s ease-in-out infinite alternate;
+}
+
+@keyframes natureBreath {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* 粒子效果容器 */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* 首页粒子 - 星星效果 */
+#page-home .particle {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* 历史页粒子 - 金色尘埃 */
+#page-history .particle {
+    width: 1px;
+    height: 1px;
+    background: rgba(184, 134, 11, 0.8);
+    animation: dustFloat 20s infinite linear;
+}
+
+@keyframes dustFloat {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 现代页粒子 - 数据流 */
+#page-modern .particle {
+    width: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.8), transparent);
+    animation: dataFlow 3s infinite linear;
+}
+
+@keyframes dataFlow {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        transform: translateX(calc(100vw + 100px));
+        opacity: 0;
+    }
+}
+
+/* 美食页粒子 - 香气气泡 */
+#page-food .particle {
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.3), transparent);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    animation: aromaRise 8s infinite ease-in-out;
+}
+
+@keyframes aromaRise {
+    from {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* 自然页粒子 - 漂浮叶子 */
+#page-nature .particle {
+    width: 15px;
+    height: 15px;
+    background: rgba(0, 200, 150, 0.2);
+    border-radius: 0 100% 0 100%;
+    animation: leafFloat 15s infinite ease-in-out;
+}
+
+@keyframes leafFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* 页面标题特效 */
+.page-header .header-title {
+    position: relative;
+    display: inline-block;
+}
+
+.page-header .header-title::before,
+.page-header .header-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.page-header .header-title::before {
+    color: var(--accent-gold);
+    animation: glitch-anim-1 0.5s infinite;
+}
+
+.page-header .header-title::after {
+    color: var(--accent-cyan);
+    animation: glitch-anim-2 0.5s infinite;
+}
+
+@keyframes glitch-anim-1 {
+    0%, 100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+    }
+    20% {
+        clip-path: inset(20% 0 30% 0);
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        clip-path: inset(50% 0 20% 0);
+        transform: translate(2px, -2px);
+    }
+    60% {
+        clip-path: inset(10% 0 60% 0);
+        transform: translate(-2px, 1px);
+    }
+    80% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(1px, -1px);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0%, 100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+    }
+    20% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px, -1px);
+    }
+    40% {
+        clip-path: inset(20% 0 50% 0);
+        transform: translate(-2px, 2px);
+    }
+    60% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translate(1px, -2px);
+    }
+    80% {
+        clip-path: inset(5% 0 80% 0);
+        transform: translate(-1px, 1px);
+    }
+}
+
+/* 光线扫描效果 */
+.scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    z-index: 100;
+    pointer-events: none;
+    animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* 鼠标跟随光效 */
+.mouse-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03), transparent 70%);
+    transform: translate(-50%, -50%);
+}
+
+/* 高级卡片悬停效果 */
+.glass-card.enhanced {
+    position: relative;
+    overflow: visible;
+}
+
+.glass-card.enhanced::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-gold), var(--accent-cyan), var(--accent-purple), var(--accent-gold));
+    border-radius: var(--radius-xl);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    animation: borderRotate 3s linear infinite;
+    background-size: 400% 400%;
+}
+
+.glass-card.enhanced:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 3D文字效果 */
+.text-3d {
+    text-shadow: 
+        0 1px 0 rgba(255, 255, 255, 0.3),
+        0 -1px 0 rgba(0, 0, 0, 0.3),
+        0 2px 2px rgba(0, 0, 0, 0.2),
+        0 4px 4px rgba(0, 0, 0, 0.1),
+        0 8px 8px rgba(0, 0, 0, 0.1),
+        0 16px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 霓虹光效 */
+.neon-text {
+    text-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 0 40px currentColor;
+}
+
+/* 液体按钮效果 */
+.btn-liquid {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.btn-liquid::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-liquid:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* 磁性效果区域 */
+.magnetic-area {
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 页面加载动画 */
+.page-load-animation {
+    animation: pageLoad 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 高级滚动指示器 */
+.scroll-indicator-advanced {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.scroll-indicator-advanced .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--glass-border);
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.scroll-indicator-advanced .dot.active {
+    background: var(--accent-gold);
+    transform: scale(1.5);
+}
+
+.scroll-indicator-advanced .dot::before {
+    content: attr(data-title);
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-surface);
+    color: var(--text-main);
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-size: 12px;
+}
+
+.scroll-indicator-advanced .dot:hover::before {
+    opacity: 1;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .page-header .header-title::before,
+    .page-header .header-title::after {
+        display: none;
+    }
+    
+    .scroll-indicator-advanced {
+        display: none;
+    }
+    
+    .mouse-glow {
+        display: none;
+    }
+}
